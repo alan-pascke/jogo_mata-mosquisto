@@ -1,0 +1,46 @@
+html{
+    cursor: url(imagens/mata_mosca.png) 30 30, auto;
+}
+
+body{
+    background: rgb(238, 227, 81) url(imagens/bg.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+
+.mosca1{
+    width: 50px;
+    height: 50px;
+}
+
+.mosca2{
+    width: 70px;
+    height: 70px;
+}
+
+.mosca3{
+    width: 90px;
+    height: 90px;
+}
+
+.ladoA{
+    /* não seria necessário aplicar este estilo porque esta formatação é a padrão, foi escrito só por didática */
+    transform: scaleX(1); 
+}
+
+.ladoB{
+    transform: scaleX(-1);
+}
+
+.anima-botao{
+    transform: translateX(1) scale(0.5);
+}
+
+
+.anima-botao:hover{
+    transform: translateX(5px) scale(1.2);
+}
+
+
