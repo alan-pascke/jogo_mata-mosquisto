@@ -24,21 +24,25 @@ ajustaTamanhoDoPalcoDoJogo()
 cronometro = setInterval(() => {
     document.getElementById('cronometro').innerHTML = tempo
     tempo++
-    contagem++
-
-    //fazer um metodo para aumentar a velocidade do surgimento das moscas a cada 15 segundos
-    if (contagem == 5) {
-        milissegundos -= 200
-        contagem = 0
-    }
-    console.log(`contagem ${contagem}`)
-    console.log(`velocidade ${milissegundos}`)
 }, 1000)
 
+setInterval(() =>{
+    if (milissegundos >= 1000) {
+        milissegundos -= 100;
+    }
+    if (milissegundos >= 200 && milissegundos <1000)  {
+        milissegundos -= 7;
+    }
+    clearInterval(criaMosca);
+    criaMosca = setInterval(function () {
+        posicaoRandomica()
+    }, milissegundos);
+    console.log(`velocidade ${milissegundos}`)
+}, 15000)
 
 function posicaoRandomica() {
 
-    //remover a mosca anterior caso exista
+    // remover a mosca anterior caso exista
     if (document.getElementById('mosca')) {
         document.getElementById('mosca').remove()
 
@@ -51,14 +55,14 @@ function posicaoRandomica() {
         vidas++
     }
 
-    //Lógica faz a mosca aparecer em lugares aleatorios da pagina
+
+    //Lógica faz a mosca aparecer em lugares aleatorios da tela
     var posicaoX = Math.floor(Math.random() * largura) - 90
     var posicaoY = Math.floor(Math.random() * altura) - 90
 
     posicaoX = posicaoX < 0 ? 0 : posicaoX
     posicaoY = posicaoY < 0 ? 0 : posicaoY
 
-    console.log(posicaoX, posicaoY)
 
     //criar o elemento html
     var mosca = document.createElement('img')
@@ -76,7 +80,6 @@ function posicaoRandomica() {
 
     document.body.appendChild(mosca)
 
-    console.log(tamanhoAleatorio())
 }
 
 
